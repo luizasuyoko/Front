@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Bem-Vindo a Nosso Site</h1>
+    <hr>
+    <label for="">Digite seu Nome</label>
+    <input type="text" name="" id="" placeholder="Digite Seu Nome" [(ngModel)]="UserName">
+    <hr>
+    <!-- interpolação de dados -->
+     <p *ngIf="UserName">Olá, {{UserName}}! É um prazer ter você aqui :)</p>
+     <p *ngIf="!UserName">Por Favor, Digite Seu Nome Para Começar</p>
+</div>
