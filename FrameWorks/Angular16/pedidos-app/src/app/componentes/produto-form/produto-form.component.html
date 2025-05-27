@@ -1,1 +1,4 @@
-<p>produto-form works!</p>
+<h2>Cadastro de Produtos</h2>
+<input type="text" name="nome" id="" [(ngModel)]="nome" placeholder="Nome do Produto">
+<input type="number" min="0" name="preço" id="" [(ngModel)]="preco" placeholder="Preço">
+<button (click)="salvarProduto()">Cadastrar Produto</button>

@@ -1,1 +1,20 @@
-<p>pedido-form works!</p>
+<h2>Registrar Pedido</h2>
+
+<label for="">Cliente:</label>
+<select name="" id="" [(ngModel)]="clienteSelecionadoId">
+    <option value="">Selecione um Clinte</option>
+    <option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nome}}</option>
+</select>
+
+<h3>Produtos:</h3>
+<div *ngFor="let produtos of produtos">
+    <label for="">
+        <input type="checkbox" [value]="produtos.id" (change)="selecionarProdutos(produtos.id.toString())">
+        {{produtos.nome}} - R$ {{produtos.preco}}
+    </label>
+</div>
+
+<h3>Desconto:</h3>
+<input type="number" [(ngModel)]="desconto" min="0" max="100">
+
+<button (click)="salvarPedido()">Registrar Pedido</button>
