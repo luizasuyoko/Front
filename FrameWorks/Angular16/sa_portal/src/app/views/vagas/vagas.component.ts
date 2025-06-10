@@ -22,13 +22,11 @@ export class VagasComponent implements OnInit {
 
   //função para listar vagas 
   listarVagas(){
-    this._VagasService.getVagas().subscribe( //
+    this._VagasService.getVaga().subscribe( //
       (e) => { //listar vaga por vaga dentro do vetor
         this.vagas = e.map(
           (vaga) => {
-            return new Vaga(
-              vaga.id, vaga.nome, vaga.foto, vaga.descricao, vaga.salario
-            );
+            return Vaga.fromMap(vaga);
           }
         );
       }
