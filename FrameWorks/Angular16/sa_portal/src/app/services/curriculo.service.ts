@@ -10,10 +10,27 @@ export class curriculosService{
     private apiUrl = "http://localhost:3008/curriculos"
 
     constructor(private http: HttpClient) { }
-    // getCurriculoByUsuarioId
-    getCurriculoByUserId(id: any): Observable<Curriculo[]>{
-        const url = this.apiUrl + "/" + id;
-        return this.http.get<Curriculo[]>(url);
+    // getCurriculo
+    getCurriculo(): Observable<Curriculo[]>{
+        return this.http.get<Curriculo[]>(this.apiUrl);
+    }
+    //post 
+    postCurriculo(curriculo:Curriculo): Observable<Curriculo[]>{//metodo pata enviar dados paar api
+      return this.http.post<Curriculo[]>(this.apiUrl,curriculo);
+      //observable -> rxjs => tradutor de json -> typescript
+    }
+    
+    //put
+    //nomeDoMetodos(parametros)
+    putCurriculo(id: any, curriculo:Curriculo): Observable<Curriculo[]>{//coleção chave -> valor
+      const url = this.apiUrl+"/"+id; //construir a url join (apiurl+id)
+      return this.http.put<Curriculo[]>(url, curriculo);
+    }
+    
+    //delete
+    deleteCurriculo(id: any): Observable<Curriculo[]>{
+      const url = this.apiUrl+"/"+id;
+      return this.http.delete<Curriculo[]>(url)
     }
     
 }
